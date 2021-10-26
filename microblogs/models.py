@@ -3,6 +3,7 @@ from django.db.models import Model
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
 from django.conf import settings
+from datetime import date
 
 # Create your models here.
 
@@ -28,4 +29,7 @@ class Post(models.Model):
         blank=False
     )
     text = models.CharField(max_length = 280)
-    created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
+    created_at = models.DateTimeField(default=date.today)
+
+    class Meta:
+        ordering = ['created_at']
