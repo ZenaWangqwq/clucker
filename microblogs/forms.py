@@ -3,8 +3,8 @@ from .models import User
 from django.core.validators import RegexValidator
 
 class PostForm(forms.Form):
-    text = forms.CharField(label='Text')
-    
+    text = forms.CharField(label='Text', widget=forms.Textarea())
+
 class LogInForm(forms.Form):
     username = forms.CharField(label='Username')
     password = forms.CharField(label='Password',widget=forms.PasswordInput())

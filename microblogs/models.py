@@ -32,4 +32,4 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=date.today)
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['-created_at']

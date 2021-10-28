@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import SignUpForm, LogInForm
+from .forms import SignUpForm, LogInForm, PostForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import User
 
 
 # Create your views here.
@@ -26,6 +27,14 @@ def log_out(request):
 
 def feed(request):
     return render(request, 'feed.html')
+
+def post(request):
+    form = PostForm()
+    return render(request, 'post.html', {'form':form})
+
+def user_list(request):
+    users = User.objects.all()
+    return render(request, 'user_list.html', {'users':users})
 
 def home(request):
     return render(request, 'home.html')
