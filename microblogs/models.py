@@ -16,7 +16,7 @@ class User(AbstractUser):
             message = 'Username must consist of @ followed by at least 3 alphanumericals'
         )]
     )
-
+    id = models.BigAutoField(primary_key=True)
     first_name = models.CharField(blank = False,max_length = 50,unique = False)
     last_name = models.CharField(blank = False,max_length = 50,unique = False)
     email = models.EmailField(unique = True,blank = False)

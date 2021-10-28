@@ -36,6 +36,10 @@ def user_list(request):
     users = User.objects.all()
     return render(request, 'user_list.html', {'users':users})
 
+def show_user(request, user_id):
+    user = User.objects.get(id=user_id)
+    return render(request, 'show_user.html', {'user': user})
+
 def home(request):
     return render(request, 'home.html')
 
