@@ -21,4 +21,4 @@ class LPostFormTestCase(TestCase):
     def test_text_must_not_have_more_than_280_characters(self):
         self.form_input['text'] = 'x' * 281
         form = PostForm(data=self.form_input)
-        self.assertTrue(form.is_valid())
+        self.assertFalse(form.is_valid())

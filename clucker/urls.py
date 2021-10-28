@@ -27,4 +27,5 @@ urlpatterns = [
     path('post/', views.post, name = 'post'),
     path('users/', views.user_list, name = 'user_list'),
     path('user/<int:user_id>', views.show_user, name = 'show_user'),
+    path('new_post', views.new_post, name = 'new_post'),
 ]

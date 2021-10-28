@@ -4,10 +4,14 @@
 </head>
   <body>
     <h1>Feed</h1>
-    <form action = "{% url 'post'%}" method = "post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type = "submit" value = "Submit the Text">
-    </form>
+    {% for post in posts %}
+      <p> Author: {{posts.author}} </p>
+      <p> Time: {{posts.created_at}} </p>
+      <form action = "{% url 'post' %}" method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type = "submit" value = "Edit the Post">
+      </form>
+    {% endfor %}
   </body>
 </html>

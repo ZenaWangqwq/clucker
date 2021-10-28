@@ -4,6 +4,9 @@ from .forms import SignUpForm, LogInForm, PostForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import User
+from .models import Post
+from django.contrib.auth.models import User
+from django.template.response import TemplateResponse
 
 
 # Create your views here.
@@ -29,8 +32,21 @@ def feed(request):
     return render(request, 'feed.html')
 
 def post(request):
-    form = PostForm()
-    return render(request, 'post.html', {'form':form})
+    posts = Post.objects.all()
+    form = PostForm(instance=request.user)
+    return TemplateResponse(request, 'post.html', {'posts':posts}, {'form':form})
+
+def new_post(request):
+    user = request.user
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('feed')
+    else:
+        form = PostForm(instance=user)
+    args = {'form':form, 'user':user}
+    return render(request, 'new_post.html', args)
 
 def user_list(request):
     users = User.objects.all()
