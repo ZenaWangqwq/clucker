@@ -4,6 +4,15 @@
 </head>
   <body>
     <h1>Feed</h1>
-    <p><a href = '{% url 'post' %}'>Post Text</a></p>
+    <p><a href = '{% url 'new_post' %}'>New Post</a></p>
+    <form method = "post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type = "submit" value = "Edit the Post">
+    </form>
+      {% for post in posts%}
+        <h2>Post Text: {{ post.text }} </h2>
+        <p>posted by {{ post.author }} on {{ post.created_at }}</p>
+      {% endfor %}
   </body>
 </html>

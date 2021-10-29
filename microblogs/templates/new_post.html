@@ -6,10 +6,10 @@
     <h1>Feed</h1>
     <p>Author: {{ user }}</p>
     <p>Time: </p>
-    <form action = "{% url 'post' %}" method = "post">
+    <form action = "{% url 'new_post' %}" method = "post">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type = "submit" value = "Edit the Post">
+      <input type = "submit" value = "New Post">
     </form>
   </body>
 </html>

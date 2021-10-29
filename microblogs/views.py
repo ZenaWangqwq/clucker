@@ -29,22 +29,35 @@ def log_out(request):
     return redirect('home')
 
 def feed(request):
-    return render(request, 'feed.html')
+    user = request.user
+    posts = Post.objects.filter(author=user)
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = user
+            post.save()
 
-def post(request):
-    posts = Post.objects.all()
-    form = PostForm(instance=request.user)
-    return TemplateResponse(request, 'post.html', {'posts':posts}, {'form':form})
+            #text = form.cleaned_data['text']
+            return redirect('feed')
+    else:
+        form = PostForm()
+    args={'user':user, 'form':form, 'posts':posts}
+    return render(request, 'feed.html', args)
 
 def new_post(request):
     user = request.user
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=user)
+        form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.author = user
+            post.save()
+
+            #text = form.cleaned_data['text']
             return redirect('feed')
     else:
-        form = PostForm(instance=user)
+        form = PostForm()
     args = {'form':form, 'user':user}
     return render(request, 'new_post.html', args)
 
