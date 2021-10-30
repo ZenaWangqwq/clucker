@@ -23,5 +23,3 @@ class Command(BaseCommand):
             user.bio = bio
 
             user.save()
-
-            print(username)

@@ -5,7 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import User
 from .models import Post
-from django.contrib.auth.models import User
 from django.template.response import TemplateResponse
 
 

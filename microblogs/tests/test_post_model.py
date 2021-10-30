@@ -15,7 +15,7 @@ class PostTest(TestCase):
             password = '1234password',
             bio = 'The quick brown fox jumps over the lazy dog.'
         )
-        self.post = Post(author=self.user, text="xxxx")
+        self.post = Post.objects.create(author=self.user, text="xxxx")
 
 
     def test_valid_thing(self):
