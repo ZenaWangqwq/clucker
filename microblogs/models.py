@@ -30,7 +30,6 @@ class Post(models.Model):
     )
     text = models.CharField(max_length = 280)
     created_at = models.DateTimeField(auto_now_add=True)
-    id = models.IntegerField(primary_key=True)
 
     class Meta:
         ordering = ['-created_at']

@@ -5,7 +5,7 @@ from django.urls import reverse
 from microblogs.models import User
 
 
-class UserListViewTestCase(TestCase:
+class UserListViewTestCase(TestCase):
     """Tests of the log in view."""
 
     def setUp(self):
