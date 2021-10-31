@@ -1,8 +1,8 @@
-<html>
-<head>
-  <title>Clucker</title>
-</head>
-  <body>
+{% extends 'base.html' %}
+{% block body %}
+<div class="containers">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 offset-md-3">
     <h1>Feed</h1>
     <p><a href = '{% url 'new_post' %}'>New Post</a></p>
     <form method = "post">
@@ -14,5 +14,7 @@
         <h2>Post Text: {{ post.text }} </h2>
         <p>posted by {{ post.author }} on {{ post.created_at }}</p>
       {% endfor %}
-  </body>
-</html>
+    </div>
+  </div>
+</div>
+{% endblock %}
