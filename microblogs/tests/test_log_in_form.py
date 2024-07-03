@@ -41,3 +41,12 @@ class LogInFormTestCase(TestCase):
         form = LogInForm(data=self.form_input)
         self.assertTrue(form.is_valid())
 
+    def test_form_rejects_too_long_username(self):
+        self.form_input['username'] = 'a' * 151  # Assuming the max length is 150
+        form = LogInForm(data=self.form_input)
+        self.assertFalse(form.is_valid())
+
+    def test_form_rejects_too_long_password(self):
+        self.form_input['password'] = 'a' * 129  # Assuming the max length is 128
+        form = LogInForm(data=self.form_input)
+        self.assertFalse(form.is_valid())
