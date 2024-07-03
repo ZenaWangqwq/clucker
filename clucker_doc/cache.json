@@ -1,0 +1,107 @@
+{
+    "./../../clucker\\clucker\\asgi.py": {
+        "source_file_path": "./../../clucker\\clucker\\asgi.py",
+        "source_file_hash": 8708764368588776024,
+        "generated_docs_path": "./../../clucker/clucker_doc\\clucker\\asgi.py.md",
+        "generated_docs_hash": 3290545957914360840,
+        "created_on": "2024-07-03T13:26:17.108147"
+    },
+    "./../../clucker\\microblogs\\forms.py": {
+        "source_file_path": "./../../clucker\\microblogs\\forms.py",
+        "source_file_hash": -3327832050249931676,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\forms.py.md",
+        "generated_docs_hash": 5841212600447992843,
+        "created_on": "2024-07-03T13:26:33.236820"
+    },
+    "./../../clucker\\microblogs\\tests\\helpers.py": {
+        "source_file_path": "./../../clucker\\microblogs\\tests\\helpers.py",
+        "source_file_hash": -8178594946531708125,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\tests\\helpers.py.md",
+        "generated_docs_hash": -3194390220935112175,
+        "created_on": "2024-07-03T13:26:38.484039"
+    },
+    "./../../clucker\\manage.py": {
+        "source_file_path": "./../../clucker\\manage.py",
+        "source_file_hash": -7756956941250414639,
+        "generated_docs_path": "./../../clucker/clucker_doc\\manage.py.md",
+        "generated_docs_hash": 7029401052493490875,
+        "created_on": "2024-07-03T13:26:44.093761"
+    },
+    "./../../clucker\\microblogs\\management\\commands\\seed.py": {
+        "source_file_path": "./../../clucker\\microblogs\\management\\commands\\seed.py",
+        "source_file_hash": -7930011100070490367,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\management\\commands\\seed.py.md",
+        "generated_docs_hash": 297771995623269581,
+        "created_on": "2024-07-03T13:26:50.250454"
+    },
+    "./../../clucker\\clucker\\settings.py": {
+        "source_file_path": "./../../clucker\\clucker\\settings.py",
+        "source_file_hash": -3406733190513303183,
+        "generated_docs_path": "./../../clucker/clucker_doc\\clucker\\settings.py.md",
+        "generated_docs_hash": 5189211769181532009,
+        "created_on": "2024-07-03T13:26:57.976058"
+    },
+    "./../../clucker\\microblogs\\tests\\test_log_in_form.py": {
+        "source_file_path": "./../../clucker\\microblogs\\tests\\test_log_in_form.py",
+        "source_file_hash": 3097810966062986005,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\tests\\test_log_in_form.py.md",
+        "generated_docs_hash": -4516067354889520142,
+        "created_on": "2024-07-03T13:27:08.192658"
+    },
+    "./../../clucker\\microblogs\\tests\\test_log_in_view.py": {
+        "source_file_path": "./../../clucker\\microblogs\\tests\\test_log_in_view.py",
+        "source_file_hash": -2022935105464548046,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\tests\\test_log_in_view.py.md",
+        "generated_docs_hash": 7661996113054960566,
+        "created_on": "2024-07-03T13:27:19.619282"
+    },
+    "./../../clucker\\microblogs\\tests\\test_log_out_view.py": {
+        "source_file_path": "./../../clucker\\microblogs\\tests\\test_log_out_view.py",
+        "source_file_hash": -6837292626919765726,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\tests\\test_log_out_view.py.md",
+        "generated_docs_hash": -500621807653338106,
+        "created_on": "2024-07-03T13:27:27.462323"
+    },
+    "./../../clucker\\microblogs\\tests\\test_sign_up_form.py": {
+        "source_file_path": "./../../clucker\\microblogs\\tests\\test_sign_up_form.py",
+        "source_file_hash": -1505037442078868513,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\tests\\test_sign_up_form.py.md",
+        "generated_docs_hash": -6567173591993854683,
+        "created_on": "2024-07-03T13:27:43.796347"
+    },
+    "./../../clucker\\microblogs\\tests\\test_sign_up_view.py": {
+        "source_file_path": "./../../clucker\\microblogs\\tests\\test_sign_up_view.py",
+        "source_file_hash": -2846414303480734297,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\tests\\test_sign_up_view.py.md",
+        "generated_docs_hash": 6759862669996916344,
+        "created_on": "2024-07-03T13:27:51.590725"
+    },
+    "./../../clucker\\microblogs\\tests\\test_user_model.py": {
+        "source_file_path": "./../../clucker\\microblogs\\tests\\test_user_model.py",
+        "source_file_hash": 2842221476559740429,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\tests\\test_user_model.py.md",
+        "generated_docs_hash": -1944125969527738798,
+        "created_on": "2024-07-03T13:27:59.396521"
+    },
+    "./../../clucker\\clucker\\urls.py": {
+        "source_file_path": "./../../clucker\\clucker\\urls.py",
+        "source_file_hash": 7205118718229840985,
+        "generated_docs_path": "./../../clucker/clucker_doc\\clucker\\urls.py.md",
+        "generated_docs_hash": -8946201754406553278,
+        "created_on": "2024-07-03T13:28:14.940623"
+    },
+    "./../../clucker\\microblogs\\views.py": {
+        "source_file_path": "./../../clucker\\microblogs\\views.py",
+        "source_file_hash": 6060266709724015012,
+        "generated_docs_path": "./../../clucker/clucker_doc\\microblogs\\views.py.md",
+        "generated_docs_hash": -3226998943098632533,
+        "created_on": "2024-07-03T13:28:25.519561"
+    },
+    "./../../clucker\\clucker\\wsgi.py": {
+        "source_file_path": "./../../clucker\\clucker\\wsgi.py",
+        "source_file_hash": -6500021749054404520,
+        "generated_docs_path": "./../../clucker/clucker_doc\\clucker\\wsgi.py.md",
+        "generated_docs_hash": 6669408321840792571,
+        "created_on": "2024-07-03T13:28:31.807039"
+    }
+}
