@@ -133,62 +133,62 @@
         "file_name": "EXTERNAL"
     },
     "asgi::(global)": {
-        "uid": "node_88440cce",
+        "uid": "node_1674ead9",
         "name": "asgi::(global)",
         "content": null,
         "callees": [
             "EXTERNAL::django.core.asgi.get_asgi_application"
         ],
-        "file_name": "./../../clucker\\clucker\\asgi.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/clucker/asgi.py"
     },
     "forms::SignUpForm.clean": {
-        "uid": "node_6874f323",
+        "uid": "node_1fb1db22",
         "name": "forms::SignUpForm.clean",
         "content": "\n\ndef clean(self):\n    super().clean()\n    new_password = self.cleaned_data.get('new_password')\n    password_confirmation = self.cleaned_data.get('password_confirmation')\n    if (new_password != password_confirmation):\n        self.add_error('password_confirmation', 'Confirmation does not match the password.')\n",
         "callees": [
             "EXTERNAL::super",
             "forms::SignUpForm.clean"
         ],
-        "file_name": "./../../clucker\\microblogs\\forms.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/forms.py"
     },
     "forms::SignUpForm.save": {
-        "uid": "node_b3e03b9a",
+        "uid": "node_bc4f956c",
         "name": "forms::SignUpForm.save",
         "content": "\n\ndef save(self):\n    super().save(commit=False)\n    user = User.objects.create_user(self.cleaned_data.get('username'), first_name=self.cleaned_data.get('first_name'), last_name=self.cleaned_data.get('last_name'), email=self.cleaned_data.get('email'), bio=self.cleaned_data.get('bio'), password=self.cleaned_data.get('new_password'))\n    return user\n",
         "callees": [
             "EXTERNAL::super",
             "forms::SignUpForm.save"
         ],
-        "file_name": "./../../clucker\\microblogs\\forms.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/forms.py"
     },
     "helpers::LogInTester._is_logged_in": {
-        "uid": "node_e1ec7189",
+        "uid": "node_4b844cc1",
         "name": "helpers::LogInTester._is_logged_in",
         "content": "\n\ndef _is_logged_in(self):\n    return ('_auth_user_id' in self.client.session.keys())\n",
         "callees": [],
-        "file_name": "./../../clucker\\microblogs\\tests\\helpers.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/helpers.py"
     },
     "manage::(global)": {
-        "uid": "node_ae43e0be",
+        "uid": "node_c1701c60",
         "name": "manage::(global)",
         "content": null,
         "callees": [
             "manage::main"
         ],
-        "file_name": "./../../clucker\\manage.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/manage.py"
     },
     "manage::main": {
-        "uid": "node_a0e369da",
+        "uid": "node_892e563c",
         "name": "manage::main",
         "content": "\n\ndef main():\n    'Run administrative tasks.'\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'clucker.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\"Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?\") from exc\n    execute_from_command_line(sys.argv)\n",
         "callees": [
             "EXTERNAL::ImportError",
             "EXTERNAL::execute_from_command_line"
         ],
-        "file_name": "./../../clucker\\manage.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/manage.py"
     },
     "seed::Command.__init__": {
-        "uid": "node_20a6122d",
+        "uid": "node_a9ef8090",
         "name": "seed::Command.__init__",
         "content": "\n\ndef __init__(self):\n    super().__init__()\n    self.faker = Faker('en_GB')\n",
         "callees": [
@@ -196,46 +196,46 @@
             "EXTERNAL::super",
             "seed::Command.__init__"
         ],
-        "file_name": "./../../clucker\\microblogs\\management\\commands\\seed.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/management/commands/seed.py"
     },
     "seed::Command.handle": {
-        "uid": "node_2a5e5852",
+        "uid": "node_66b847e2",
         "name": "seed::Command.handle",
         "content": "\n\ndef handle(self, *args, **options):\n    print('WARINING')\n",
         "callees": [
             "EXTERNAL::print"
         ],
-        "file_name": "./../../clucker\\microblogs\\management\\commands\\seed.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/management/commands/seed.py"
     },
     "settings::(global)": {
-        "uid": "node_35f3f96b",
+        "uid": "node_ad0778c8",
         "name": "settings::(global)",
         "content": null,
         "callees": [
             "EXTERNAL::pathlib.Path"
         ],
-        "file_name": "./../../clucker\\clucker\\settings.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/clucker/settings.py"
     },
     "test_log_in_form::LogInFormTestCase.test_forms_contains_required_fields": {
-        "uid": "node_a08524cc",
+        "uid": "node_d0a15def",
         "name": "test_log_in_form::LogInFormTestCase.test_forms_contains_required_fields",
         "content": "\n\ndef test_forms_contains_required_fields(self):\n    form = LogInForm()\n    self.assertIn('username', form.fields)\n    self.assertIn('password', form.fields)\n    password_field = form.fields['password']\n    self.assertTrue(isinstance(password_field.widget, forms.PasswordInput))\n",
         "callees": [
             "EXTERNAL::isinstance"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_in_form.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_in_form.py"
     },
     "test_log_in_view::SignUpViewTestCase.setUp": {
-        "uid": "node_2a04945b",
+        "uid": "node_1751b202",
         "name": "test_log_in_view::SignUpViewTestCase.setUp",
         "content": "\n\ndef setUp(self):\n    self.url = reverse('log_in')\n    self.user = User.objects.create_user('@janedoe', first_name='Jane', last_name='Doe', email='janedoe@example.com', bio='Hello, I am Jane Doe.', password='Password123', is_active=True)\n",
         "callees": [
             "EXTERNAL::django.urls.reverse"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_in_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_in_view.py"
     },
     "test_log_in_view::SignUpViewTestCase.test_get_log_in": {
-        "uid": "node_3192b0e8",
+        "uid": "node_9b29b058",
         "name": "test_log_in_view::SignUpViewTestCase.test_get_log_in",
         "content": "\n\ndef test_get_log_in(self):\n    response = self.client.get(self.url)\n    self.assertEqual(response.status_code, 200)\n    self.assertTemplateUsed(response, 'log_in.html')\n    form = response.context['form']\n    self.assertTrue(isinstance(form, LogInForm))\n    self.assertFalse(form.is_bound)\n    messages_list = list(response.context['messages'])\n    self.assertEqual(len(messages_list), 0)\n",
         "callees": [
@@ -243,10 +243,10 @@
             "EXTERNAL::len",
             "EXTERNAL::list"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_in_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_in_view.py"
     },
     "test_log_in_view::SignUpViewTestCase.test_succesful_log_in": {
-        "uid": "node_c61a334f",
+        "uid": "node_42cfcce9",
         "name": "test_log_in_view::SignUpViewTestCase.test_succesful_log_in",
         "content": "\n\ndef test_succesful_log_in(self):\n    form_input = {'username': '@janedoe', 'password': 'Password123'}\n    response = self.client.post(self.url, form_input, follow=True)\n    self.assertTrue(self._is_logged_in())\n    response_url = reverse('feed')\n    self.assertRedirects(response, response_url, status_code=302, target_status_code=200)\n    self.assertTemplateUsed(response, 'feed.html')\n    messages_list = list(response.context['messages'])\n    self.assertEqual(len(messages_list), 0)\n",
         "callees": [
@@ -255,10 +255,10 @@
             "EXTERNAL::list",
             "helpers::LogInTester._is_logged_in"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_in_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_in_view.py"
     },
     "test_log_in_view::SignUpViewTestCase.test_unsuccesful_log_in": {
-        "uid": "node_3d615166",
+        "uid": "node_364816ea",
         "name": "test_log_in_view::SignUpViewTestCase.test_unsuccesful_log_in",
         "content": "\n\ndef test_unsuccesful_log_in(self):\n    form_input = {'username': '@janedoe', 'password': 'WrongPassword123'}\n    response = self.client.post(self.url, form_input)\n    self.assertEqual(response.status_code, 200)\n    self.assertTemplateUsed(response, 'log_in.html')\n    form = response.context['form']\n    self.assertTrue(isinstance(form, LogInForm))\n    self.assertFalse(form.is_bound)\n    self.assertFalse(self._is_logged_in())\n    messages_list = list(response.context['messages'])\n    self.assertEqual(len(messages_list), 1)\n    self.assertEqual(messages_list[0].level, messages.ERROR)\n",
         "callees": [
@@ -267,10 +267,10 @@
             "EXTERNAL::list",
             "helpers::LogInTester._is_logged_in"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_in_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_in_view.py"
     },
     "test_log_in_view::SignUpViewTestCase.test_valid_log_in_by_inactive_user": {
-        "uid": "node_107f4add",
+        "uid": "node_677232a7",
         "name": "test_log_in_view::SignUpViewTestCase.test_valid_log_in_by_inactive_user",
         "content": "\n\ndef test_valid_log_in_by_inactive_user(self):\n    self.user.is_active = False\n    self.user.save()\n    form_input = {'username': '@janedoe', 'password': 'Password123'}\n    response = self.client.post(self.url, form_input, follow=True)\n    self.assertEqual(response.status_code, 200)\n    self.assertTemplateUsed(response, 'log_in.html')\n    form = response.context['form']\n    self.assertTrue(isinstance(form, LogInForm))\n    self.assertFalse(form.is_bound)\n    self.assertFalse(self._is_logged_in())\n    messages_list = list(response.context['messages'])\n    self.assertEqual(len(messages_list), 1)\n    self.assertEqual(messages_list[0].level, messages.ERROR)\n",
         "callees": [
@@ -280,19 +280,19 @@
             "forms::SignUpForm.save",
             "helpers::LogInTester._is_logged_in"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_in_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_in_view.py"
     },
     "test_log_out_view::LogOutViewTestCase.setUp": {
-        "uid": "node_2b9acb1c",
+        "uid": "node_8b4c5309",
         "name": "test_log_out_view::LogOutViewTestCase.setUp",
         "content": "\n\ndef setUp(self):\n    self.url = reverse('log_out')\n    self.user = User.objects.create_user('@janedoe', first_name='Jane', last_name='Doe', email='janedoe@example.com', bio='Hello, I am Jane Doe.', password='Password123', is_active=True)\n",
         "callees": [
             "EXTERNAL::django.urls.reverse"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_out_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_out_view.py"
     },
     "test_log_out_view::LogOutViewTestCase.test_get_lot_out": {
-        "uid": "node_3272f834",
+        "uid": "node_764b4d12",
         "name": "test_log_out_view::LogOutViewTestCase.test_get_lot_out",
         "content": "\n\ndef test_get_lot_out(self):\n    self.client.login(username='@janedoe', password='Password123')\n    self.assertTrue(self._is_logged_in())\n    response = self.client.get(self.url, follow=True)\n    response_url = reverse('home')\n    self.assertRedirects(response, response_url, status_code=302, target_status_code=200)\n    self.assertTemplateUsed(response, 'home.html')\n    self.assertFalse(self._is_logged_in())\n",
         "callees": [
@@ -300,10 +300,10 @@
             "helpers::LogInTester._is_logged_in",
             "helpers::LogInTester._is_logged_in"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_log_out_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_log_out_view.py"
     },
     "test_sign_up_form::SignUpFormTestCase.test_form_has_necessary_fields": {
-        "uid": "node_6884a9a1",
+        "uid": "node_da011dcb",
         "name": "test_sign_up_form::SignUpFormTestCase.test_form_has_necessary_fields",
         "content": "\n\ndef test_form_has_necessary_fields(self):\n    form = SignUpForm()\n    self.assertIn('first_name', form.fields)\n    self.assertIn('last_name', form.fields)\n    self.assertIn('username', form.fields)\n    self.assertIn('email', form.fields)\n    email_field = form.fields['email']\n    self.assertTrue(isinstance(email_field, forms.EmailField))\n    self.assertIn('bio', form.fields)\n    self.assertIn('new_password', form.fields)\n    new_password_widget = form.fields['new_password'].widget\n    self.assertTrue(isinstance(new_password_widget, forms.PasswordInput))\n    self.assertIn('password_confirmation', form.fields)\n    password_confirmation_widghet = form.fields['password_confirmation'].widget\n    self.assertTrue(isinstance(password_confirmation_widghet, forms.PasswordInput))\n",
         "callees": [
@@ -311,38 +311,38 @@
             "EXTERNAL::isinstance",
             "EXTERNAL::isinstance"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_sign_up_form.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_sign_up_form.py"
     },
     "test_sign_up_form::SignUpFormTestCase.test_successful_sign_up": {
-        "uid": "node_d6f6c5b2",
+        "uid": "node_379c0b79",
         "name": "test_sign_up_form::SignUpFormTestCase.test_successful_sign_up",
         "content": "\n\ndef test_successful_sign_up(self):\n    form = SignUpForm(data=self.form_input)\n    before_count = User.objects.count()\n    form.save()\n    after_count = User.objects.count()\n    self.assertEqual(before_count, (after_count - 1))\n    user = User.objects.get(username='@janedoe')\n    self.assertTrue(user.first_name, 'Jane')\n    self.assertTrue(user.last_name, 'Doe')\n    self.assertTrue(user.email, 'janedoe@example.org')\n    self.assertTrue(user.bio, 'My bio')\n    is_password_correct = check_password('Password123', user.password)\n    self.assertTrue(is_password_correct)\n",
         "callees": [
             "EXTERNAL::django.contrib.auth.hashers.check_password",
             "forms::SignUpForm.save"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_sign_up_form.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_sign_up_form.py"
     },
     "test_sign_up_view::SignUpViewTestCase.setUp": {
-        "uid": "node_b34d10f4",
+        "uid": "node_d2d56eb0",
         "name": "test_sign_up_view::SignUpViewTestCase.setUp",
         "content": "\n\ndef setUp(self):\n    self.url = reverse('sign_up')\n    self.form_input = {'first_name': 'Jane', 'last_name': 'Doe', 'username': '@janedoe', 'email': 'janedoe@example.org', 'bio': 'My bio', 'new_password': 'Password123', 'password_confirmation': 'Password123'}\n",
         "callees": [
             "EXTERNAL::django.urls.reverse"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_sign_up_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_sign_up_view.py"
     },
     "test_sign_up_view::SignUpViewTestCase.test_get_sign_up": {
-        "uid": "node_bb9f2413",
+        "uid": "node_e3671cc9",
         "name": "test_sign_up_view::SignUpViewTestCase.test_get_sign_up",
         "content": "\n\ndef test_get_sign_up(self):\n    response = self.client.get(self.url)\n    self.assertEqual(response.status_code, 200)\n    self.assertTemplateUsed(response, 'sign_up.html')\n    form = response.context['form']\n    self.assertTrue(isinstance(form, SignUpForm))\n    self.assertFalse(form.is_bound)\n",
         "callees": [
             "EXTERNAL::isinstance"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_sign_up_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_sign_up_view.py"
     },
     "test_sign_up_view::SignUpViewTestCase.test_successful_sign_up": {
-        "uid": "node_4819b3e1",
+        "uid": "node_17db4199",
         "name": "test_sign_up_view::SignUpViewTestCase.test_successful_sign_up",
         "content": "\n\ndef test_successful_sign_up(self):\n    before_count = User.objects.count()\n    response = self.client.post(self.url, self.form_input, follow=True)\n    after_count = User.objects.count()\n    self.assertEqual(before_count, (after_count - 1))\n    response_url = reverse('feed')\n    self.assertRedirects(response, response_url, status_code=302, target_status_code=200)\n    self.assertTemplateUsed(response, 'feed.html')\n    user = User.objects.get(username='@janedoe')\n    self.assertTrue(user.first_name, 'Jane')\n    self.assertTrue(user.last_name, 'Doe')\n    self.assertTrue(user.email, 'janedoe@example.org')\n    self.assertTrue(user.bio, 'My bio')\n    is_password_correct = check_password('Password123', user.password)\n    self.assertTrue(is_password_correct)\n    self.assertTrue(self._is_logged_in())\n",
         "callees": [
@@ -350,106 +350,106 @@
             "EXTERNAL::django.urls.reverse",
             "helpers::LogInTester._is_logged_in"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_sign_up_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_sign_up_view.py"
     },
     "test_sign_up_view::SignUpViewTestCase.test_unsuccessful_sign_up": {
-        "uid": "node_6b76c3e4",
+        "uid": "node_9c7b0539",
         "name": "test_sign_up_view::SignUpViewTestCase.test_unsuccessful_sign_up",
         "content": "\n\ndef test_unsuccessful_sign_up(self):\n    self.form_input['username'] = 'BAD_USERNAME'\n    before_count = User.objects.count()\n    response = self.client.post(self.url, self.form_input)\n    after_count = User.objects.count()\n    self.assertEqual(before_count, after_count)\n    self.assertEqual(response.status_code, 200)\n    self.assertTemplateUsed(response, 'sign_up.html')\n    form = response.context['form']\n    self.assertTrue(isinstance(form, SignUpForm))\n    self.assertTrue(form.is_bound)\n    self.assertFalse(self._is_logged_in())\n",
         "callees": [
             "EXTERNAL::isinstance",
             "helpers::LogInTester._is_logged_in"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_sign_up_view.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_sign_up_view.py"
     },
     "test_user_model::UserModelTestCase._assert_right": {
-        "uid": "node_24043967",
+        "uid": "node_ad70d381",
         "name": "test_user_model::UserModelTestCase._assert_right",
         "content": "\n\ndef _assert_right(self):\n    try:\n        self.user.full_clean()\n    except ValidationError:\n        self.fail('Test user should be valid')\n",
         "callees": [],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase._assert_wrong": {
-        "uid": "node_09def457",
+        "uid": "node_50d5a15e",
         "name": "test_user_model::UserModelTestCase._assert_wrong",
         "content": "\n\ndef _assert_wrong(self):\n    with self.assertRaises(ValidationError):\n        self.user.full_clean()\n",
         "callees": [],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_user_should_be_unique": {
-        "uid": "node_11b7fd82",
+        "uid": "node_190792c2",
         "name": "test_user_model::UserModelTestCase.test_user_should_be_unique",
         "content": "\n\ndef test_user_should_be_unique(self):\n    user = User.objects.create_user('@zemei', first_name='Zemei', last_name='Wang', email='111111@qq.com', password='8888password', bio='This is Zemei profile.')\n    self.user.username = '@zemei'\n    self._assert_wrong()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_wrong"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_username_can_be_30_characters_long": {
-        "uid": "node_51e59047",
+        "uid": "node_4988dfa7",
         "name": "test_user_model::UserModelTestCase.test_username_can_be_30_characters_long",
         "content": "\n\ndef test_username_can_be_30_characters_long(self):\n    self.user.username = ('@' + ('x' * 29))\n    self._assert_right()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_right"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_username_cannot_be_blank": {
-        "uid": "node_a8ae4fc0",
+        "uid": "node_2f4be2a3",
         "name": "test_user_model::UserModelTestCase.test_username_cannot_be_blank",
         "content": "\n\ndef test_username_cannot_be_blank(self):\n    self.user.username = ''\n    self._assert_wrong()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_wrong"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_username_cannot_be_over_30_characters_long": {
-        "uid": "node_519d6724",
+        "uid": "node_8fa7a50a",
         "name": "test_user_model::UserModelTestCase.test_username_cannot_be_over_30_characters_long",
         "content": "\n\ndef test_username_cannot_be_over_30_characters_long(self):\n    self.user.username = ('@' + ('x' * 30))\n    self._assert_wrong()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_wrong"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_username_length_must_be_at_least_3": {
-        "uid": "node_0c1bfb89",
+        "uid": "node_86987b50",
         "name": "test_user_model::UserModelTestCase.test_username_length_must_be_at_least_3",
         "content": "\n\ndef test_username_length_must_be_at_least_3(self):\n    self.user.username = '@as'\n    self._assert_wrong()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_wrong"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_username_may_contain_number": {
-        "uid": "node_abbd5e02",
+        "uid": "node_ce9ef759",
         "name": "test_user_model::UserModelTestCase.test_username_may_contain_number",
         "content": "\n\ndef test_username_may_contain_number(self):\n    self.user.username = '@zemei123'\n    self._assert_right()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_right"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_username_must_be_contain_only_one_at": {
-        "uid": "node_523a68f2",
+        "uid": "node_9ce5f5d2",
         "name": "test_user_model::UserModelTestCase.test_username_must_be_contain_only_one_at",
         "content": "\n\ndef test_username_must_be_contain_only_one_at(self):\n    self.user.username = '@@zena'\n    self._assert_wrong()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_wrong"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "test_user_model::UserModelTestCase.test_username_must_begin_with_at_symbol": {
-        "uid": "node_4c14d613",
+        "uid": "node_91d3a98c",
         "name": "test_user_model::UserModelTestCase.test_username_must_begin_with_at_symbol",
         "content": "\n\ndef test_username_must_begin_with_at_symbol(self):\n    self.user.username = '@zjam!ss'\n    self._assert_wrong()\n",
         "callees": [
             "test_user_model::UserModelTestCase._assert_wrong"
         ],
-        "file_name": "./../../clucker\\microblogs\\tests\\test_user_model.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/tests/test_user_model.py"
     },
     "urls::(global)": {
-        "uid": "node_878c9751",
+        "uid": "node_abc63f4e",
         "name": "urls::(global)",
         "content": null,
         "callees": [
@@ -460,28 +460,28 @@
             "EXTERNAL::django.urls.path",
             "EXTERNAL::django.urls.path"
         ],
-        "file_name": "./../../clucker\\clucker\\urls.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/clucker/urls.py"
     },
     "views::feed": {
-        "uid": "node_27bbbc3e",
+        "uid": "node_430900bd",
         "name": "views::feed",
         "content": "\n\ndef feed(request):\n    return render(request, 'feed.html')\n",
         "callees": [
             "EXTERNAL::django.shortcuts.render"
         ],
-        "file_name": "./../../clucker\\microblogs\\views.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/views.py"
     },
     "views::home": {
-        "uid": "node_881e8840",
+        "uid": "node_a4ff9f32",
         "name": "views::home",
         "content": "\n\ndef home(request):\n    return render(request, 'home.html')\n",
         "callees": [
             "EXTERNAL::django.shortcuts.render"
         ],
-        "file_name": "./../../clucker\\microblogs\\views.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/views.py"
     },
     "views::log_in": {
-        "uid": "node_aa7a9b70",
+        "uid": "node_89692773",
         "name": "views::log_in",
         "content": "\n\ndef log_in(request):\n    if (request.method == 'POST'):\n        form = LogInForm(request.POST)\n        if form.is_valid():\n            username = form.cleaned_data.get('username')\n            password = form.cleaned_data.get('password')\n            user = authenticate(username=username, password=password)\n            if (user is not None):\n                login(request, user)\n                return redirect('feed')\n        messages.add_message(request, messages.ERROR, 'The credentials provided were invalid!')\n    form = LogInForm()\n    return render(request, 'log_in.html', {'form': form})\n",
         "callees": [
@@ -490,20 +490,20 @@
             "EXTERNAL::django.shortcuts.redirect",
             "EXTERNAL::django.shortcuts.render"
         ],
-        "file_name": "./../../clucker\\microblogs\\views.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/views.py"
     },
     "views::log_out": {
-        "uid": "node_ba502087",
+        "uid": "node_093fe7f8",
         "name": "views::log_out",
         "content": "\n\ndef log_out(request):\n    logout(request)\n    return redirect('home')\n",
         "callees": [
             "EXTERNAL::django.contrib.auth.logout",
             "EXTERNAL::django.shortcuts.redirect"
         ],
-        "file_name": "./../../clucker\\microblogs\\views.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/views.py"
     },
     "views::sign_up": {
-        "uid": "node_2dfaa6d1",
+        "uid": "node_eeba9203",
         "name": "views::sign_up",
         "content": "\n\ndef sign_up(request):\n    if (request.method == 'POST'):\n        form = SignUpForm(request.POST)\n        if form.is_valid():\n            user = form.save()\n            login(request, user)\n            return redirect('feed')\n    else:\n        form = SignUpForm()\n    return render(request, 'sign_up.html', {'form': form})\n",
         "callees": [
@@ -512,15 +512,15 @@
             "EXTERNAL::django.shortcuts.render",
             "forms::SignUpForm.save"
         ],
-        "file_name": "./../../clucker\\microblogs\\views.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/microblogs/views.py"
     },
     "wsgi::(global)": {
-        "uid": "node_ab5bb6c6",
+        "uid": "node_20be46ba",
         "name": "wsgi::(global)",
         "content": null,
         "callees": [
             "EXTERNAL::django.core.wsgi.get_wsgi_application"
         ],
-        "file_name": "./../../clucker\\clucker\\wsgi.py"
+        "file_name": "/home/runner/work/test-repo-copilot/test-repo-copilot/clucker/clucker/wsgi.py"
     }
 }
