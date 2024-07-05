@@ -18,3 +18,5 @@ class User(AbstractUser):
     last_name = models.CharField(blank = False,max_length = 50,unique = False)
     email = models.EmailField(unique = True,blank = False)
     bio = models.CharField(max_length = 520, blank = True)
+    phone = models.CharField(max_length=15, null=True, blank=True)
+    birthdate = models.DateField(null=True, blank=True)

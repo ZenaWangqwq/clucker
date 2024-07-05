@@ -9,7 +9,7 @@ class LogInForm(forms.Form):
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'bio']
+        fields = ['first_name', 'last_name', 'username', 'email', 'bio', 'birthdate', 'phone']
         widgets = {'bio': forms.Textarea()}
 
     new_password = forms.CharField(
@@ -51,5 +51,7 @@ class SignUpForm(forms.ModelForm):
             email = self.cleaned_data.get('email'),
             bio = self.cleaned_data.get('bio'),
             password = self.cleaned_data.get('new_password'),
+            birthdate = self.cleaned_data.get('birthdate'),
+            phone = self.cleaned_data.get('phone'),
         )
         return user
