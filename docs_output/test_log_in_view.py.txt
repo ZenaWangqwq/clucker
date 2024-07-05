@@ -1,0 +1,229 @@
+You are an AI documentation assistant, and your task is to generate documentation based on the given code of an object. The purpose of the documentation is to help developers and beginners understand the function and specific usage of the code.
+
+The path of the document you need to generate in this project is ./../../clucker.
+Now you need to generate a document for "test_log_in_view.py".
+
+The content of the code is as follows:
+"""Tests of the log in view."""
+
+from django.test import TestCase
+from microblogs.forms import LogInForm
+from django.urls import reverse
+from microblogs.models import User
+from .helpers import LogInTester
+from django.contrib import messages
+
+class SignUpViewTestCase(TestCase, LogInTester):
+    """Tests of the log in view."""
+
+    def setUp(self):
+        self.url = reverse('log_in')
+        self.user = User.objects.create_user('@janedoe',
+            first_name='Jane',
+            last_name='Doe',
+            email='janedoe@example.com',
+            bio='Hello, I am Jane Doe.',
+            password='Password123',
+            is_active=True,
+            )
+
+    def test_log_in_url(self):
+        self.assertEqual(self.url, '/log_in/')
+
+    def test_get_log_in(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'log_in.html')
+        form = response.context['form']
+        self.assertTrue(isinstance(form, LogInForm))
+        self.assertFalse(form.is_bound)
+        messages_list = list(response.context['messages'])
+        self.assertEqual(len(messages_list),0)
+
+    def test_unsuccesful_log_in(self):
+        form_input = {'username':'@janedoe','password':'WrongPassword123'}
+        response = self.client.post(self.url,form_input)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'log_in.html')
+        form = response.context['form']
+        self.assertTrue(isinstance(form, LogInForm))
+        self.assertFalse(form.is_bound)
+        self.assertFalse(self._is_logged_in())
+        messages_list = list(response.context['messages'])
+        self.assertEqual(len(messages_list),1)
+        self.assertEqual(messages_list[0].level, messages.ERROR)
+
+
+    def test_succesful_log_in(self):
+        form_input = {'username':'@janedoe','password':'Password123'}
+        response = self.client.post(self.url,form_input, follow=True)
+        self.assertTrue(self._is_logged_in())
+        response_url = reverse('feed')
+        self.assertRedirects(response, response_url, status_code = 302, target_status_code = 200)
+        self.assertTemplateUsed(response, 'feed.html')
+        messages_list = list(response.context['messages'])
+        self.assertEqual(len(messages_list),0)
+
+    def test_valid_log_in_by_inactive_user(self):
+        self.user.is_active=False
+        self.user.save()
+        form_input = {'username':'@janedoe','password':'Password123'}
+        response = self.client.post(self.url,form_input, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'log_in.html')
+        form = response.context['form']
+        self.assertTrue(isinstance(form, LogInForm))
+        self.assertFalse(form.is_bound)
+        self.assertFalse(self._is_logged_in())
+        messages_list = list(response.context['messages'])
+        self.assertEqual(len(messages_list),1)
+        self.assertEqual(messages_list[0].level, messages.ERROR)
+
+
+Please note any part of the content you generate SHOULD NOT CONTAIN Markdown hierarchical heading and divider syntax.
+
+The standard format is as follows (If a section does not have any information, you can skip it and move to the next one):
+
+# test_log_in_view.py
+
+## ClassDef NameOfClass
+
+The function of the class is XXX. (Only code name and one sentence function description are required)
+
+**Attributes**:
+
+- `attribute1` (`type`): Description of the first attribute.
+
+**Functions**:
+
+- `function_name1`(`param1`: `type`) -> `return_type`
+    - Parameters:
+        - `param1` (`type`): Description of the first parameter.
+    - Returns:
+        - `return_type`: Description of the return value.
+
+**Called_functions**:
+
+- `function1`(`param1`: `type`) -> `return_type`: Description of what function1 does and what function1 returns.
+
+**Code Description**: The description of this class. (Detailed and CERTAIN code analysis and description)
+
+**Note**: Points to note about the use of the code according to the returns
+
+**Input Example**: 
+
+```
+Provide an input example for a specified data type (e.g., list, double, int) and include a detailed explanation.
+```
+
+**Output Example**:
+
+```
+Provide an output example for a specified data type (e.g., list, double, int) and include a detailed explanation.
+```
+
+
+
+## FunctionDef NameOfFunction (functions that do not belong to a class but are still present in the file)
+
+The function of the function is XXX. (Only code name and one sentence function description are required)
+
+**Parameters**:
+
+- `param1` (`type`): Description of the first parameter.
+
+**Returns**:
+
+- `return_type`: Description of the return value.
+
+**Called_functions**:
+
+- `function1`(`param1`: `type`) -> `return_type`: Description of what function1 does and what function1 returns.
+
+**Code Description**: The description of this function. (Detailed and CERTAIN code analysis and description)
+
+**Note**: Points to note about the use of the code according to the returns
+
+**Input Example**: 
+
+```
+Provide an input example for a specified data type (e.g., list, double, int) and include a detailed explanation.
+```
+
+**Output Example**: 
+
+```
+Provide an output example for a specified data type (e.g., list, double, int) and include a detailed explanation.
+```
+
+Please generate a detailed explanation document for this object based on the code of the target object itself. For the section Called_functions, considering the additional documentation for the functions and classes called within the file:
+
+Function/Class EXTERNAL::django.urls.reverse:
+None
+
+Function/Class EXTERNAL::isinstance:
+None
+
+Function/Class EXTERNAL::len:
+None
+
+Function/Class EXTERNAL::list:
+None
+
+Function/Class EXTERNAL::django.urls.reverse:
+None
+
+Function/Class EXTERNAL::len:
+None
+
+Function/Class EXTERNAL::list:
+None
+
+Function/Class helpers::LogInTester._is_logged_in:
+
+
+def _is_logged_in(self):
+    return ('_auth_user_id' in self.client.session.keys())
+
+
+Function/Class EXTERNAL::isinstance:
+None
+
+Function/Class EXTERNAL::len:
+None
+
+Function/Class EXTERNAL::list:
+None
+
+Function/Class helpers::LogInTester._is_logged_in:
+
+
+def _is_logged_in(self):
+    return ('_auth_user_id' in self.client.session.keys())
+
+
+Function/Class EXTERNAL::isinstance:
+None
+
+Function/Class EXTERNAL::len:
+None
+
+Function/Class EXTERNAL::list:
+None
+
+Function/Class forms::SignUpForm.save:
+
+
+def save(self):
+    super().save(commit=False)
+    user = User.objects.create_user(self.cleaned_data.get('username'), first_name=self.cleaned_data.get('first_name'), last_name=self.cleaned_data.get('last_name'), email=self.cleaned_data.get('email'), bio=self.cleaned_data.get('bio'), password=self.cleaned_data.get('new_password'))
+    return user
+
+
+Function/Class helpers::LogInTester._is_logged_in:
+
+
+def _is_logged_in(self):
+    return ('_auth_user_id' in self.client.session.keys())
+
+.
