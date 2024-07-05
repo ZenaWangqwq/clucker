@@ -1,9 +1,74 @@
-You are an AI documentation assistant, and your task is to generate documentation based on the given code of an object. The purpose of the documentation is to help developers and beginners understand the function and specific usage of the code.
+You are an AI documentation assistant. Your task is to update the existing documentation based on the provided changes in the code. 
 
-The path of the document you need to generate in this project is ./../../clucker.
-Now you need to generate a document for "forms.py".
+Now you need to update the document for "forms.py".
 
-The content of the code is as follows:
+**Old Documentation**:
+# forms.py
+
+## ClassDef LogInForm
+
+The function of the class is to validate username and password for login purposes.
+
+**Attributes**:
+
+- `username` (`str`): The username entered by the user.
+- `password` (`str`): The password entered by the user.
+
+**Functions**:
+
+
+None
+
+**Code Description**: This class defines a log in form with two attributes: `username` and `password`. It does not contain any specific validation logic.
+
+## ClassDef SignUpForm
+
+The function of the class is to validate and save new user sign up information, including password confirmation.
+
+**Attributes**:
+
+- `first_name` (`str`): The first name of the user.
+- `last_name` (`str`): The last name of the user.
+- `username` (`str`): The username chosen by the user.
+- `email` (`str`): The email address of the user.
+- `bio` (`str`): A bio or description about the user.
+- `new_password` (`str`): The new password entered by the user.
+- `password_confirmation` (`str`): The confirmation of the new password.
+
+**Functions**:
+
+- **clean**():
+    - Parameters: None
+    - Returns: None
+    - Description: This method validates the form data. It checks if the newly created password matches the password confirmation.
+- **save**():
+    - Parameters: None
+    - Returns: `user` (`User`): The saved user object.
+    - Description: This method saves the form data to a new user in the database.
+
+**Called_functions**:
+
+- `super().clean()`: Calls the parent class' clean method for general form validation.
+- `super().save(commit=False)`: Calls the parent class' save method without committing the changes to the database.
+- `User.objects.create_user()`: Creates and saves a new user in the database.
+
+**Code Description**: This class defines a sign up form that validates and saves user information. It includes password confirmation validation and ensures that the saved password matches the entered password.
+
+**Note**: The code enforces strong password policy by requiring uppercase letters, lowercase letters, and numbers. It also prevents incorrect password confirmation.
+
+**Input Example**: 
+
+```
+Input will be a dictionary-like object with attributes like 'first_name', 'last_name', 'username', 'email', 'bio', 'new_password', and 'password_confirmation'.
+```
+
+**Output Example**:
+
+```
+The output of the save method will be a user object containing all the saved information.
+```
+
+**Old Code Content**:
 from django import forms
 from .models import User
 from django.core.validators import RegexValidator
@@ -61,107 +126,91 @@ class SignUpForm(forms.ModelForm):
         return user
 
 
-Please note any part of the content you generate SHOULD NOT CONTAIN Markdown hierarchical heading and divider syntax.
+**New Code Content**:
+from django import forms
+from .models import User
+from django.core.validators import RegexValidator
 
-The standard format is as follows (If a section does not have any information, you can skip it and move to the next one):
+class LogInForm(forms.Form):
+    username = forms.CharField(label='Username')
+    password = forms.CharField(label='Password',widget=forms.PasswordInput())
 
-# forms.py
+class SignUpForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'bio', 'birthdate', 'phone']
+        widgets = {'bio': forms.Textarea()}
 
-## ClassDef NameOfClass
+    new_password = forms.CharField(
+        label = 'Password',
+        widget = forms.PasswordInput(),
+        validators=[RegexValidator(
+            regex = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$',
+            message = 'Password must contain uppercase, lowercase letter and number.'
+            # RegexValidator(
+            #     regex=r'[A-Z]',
+            #     message = 'Password must contain capital letter.'
+            # ),
+            # RegexValidator(
+            #     regex=r'[a-z]',
+            #     message = 'Password must contain lowercase letter.'
+            # ),
+            # RegexValidator(
+            #     regex=r'[0-9]',
+            #     message = 'Password must contain number.'
+            # ),
+        )]
 
-The function of the class is XXX. (Only code name and one sentence function description are required)
+    )
+    password_confirmation = forms.CharField(label = 'Password Confirmation', widget = forms.PasswordInput())
 
-**Attributes**:
+    def clean(self):
+        super().clean()
+        new_password = self.cleaned_data.get('new_password')
+        password_confirmation = self.cleaned_data.get('password_confirmation')
+        if(new_password != password_confirmation):
+            self.add_error('password_confirmation', 'Confirmation does not match the password.')
 
-- `attribute1` (`type`): Description of the first attribute.
-
-**Functions**:
-
-- `function_name1`(`param1`: `type`) -> `return_type`
-    - Parameters:
-        - `param1` (`type`): Description of the first parameter.
-    - Returns:
-        - `return_type`: Description of the return value.
-
-**Called_functions**:
-
-- `function1`(`param1`: `type`) -> `return_type`: Description of what function1 does and what function1 returns.
-
-**Code Description**: The description of this class. (Detailed and CERTAIN code analysis and description)
-
-**Note**: Points to note about the use of the code according to the returns
-
-**Input Example**: 
-
-```
-Provide an input example for a specified data type (e.g., list, double, int) and include a detailed explanation.
-```
-
-**Output Example**:
-
-```
-Provide an output example for a specified data type (e.g., list, double, int) and include a detailed explanation.
-```
-
-
-
-## FunctionDef NameOfFunction (functions that do not belong to a class but are still present in the file)
-
-The function of the function is XXX. (Only code name and one sentence function description are required)
-
-**Parameters**:
-
-- `param1` (`type`): Description of the first parameter.
-
-**Returns**:
-
-- `return_type`: Description of the return value.
-
-**Called_functions**:
-
-- `function1`(`param1`: `type`) -> `return_type`: Description of what function1 does and what function1 returns.
-
-**Code Description**: The description of this function. (Detailed and CERTAIN code analysis and description)
-
-**Note**: Points to note about the use of the code according to the returns
-
-**Input Example**: 
-
-```
-Provide an input example for a specified data type (e.g., list, double, int) and include a detailed explanation.
-```
-
-**Output Example**: 
-
-```
-Provide an output example for a specified data type (e.g., list, double, int) and include a detailed explanation.
-```
-
-Please generate a detailed explanation document for this object based on the code of the target object itself. For the section Called_functions, considering the additional documentation for the functions and classes called within the file:
-
-Function/Class EXTERNAL::super:
-None
-
-Function/Class forms::SignUpForm.clean:
+    def save(self):
+        super().save(commit=False)
+        user = User.objects.create_user(
+            self.cleaned_data.get('username'),
+            first_name = self.cleaned_data.get('first_name'),
+            last_name = self.cleaned_data.get('last_name'),
+            email = self.cleaned_data.get('email'),
+            bio = self.cleaned_data.get('bio'),
+            password = self.cleaned_data.get('new_password'),
+            birthdate = self.cleaned_data.get('birthdate'),
+            phone = self.cleaned_data.get('phone'),
+        )
+        return user
 
 
-def clean(self):
-    super().clean()
-    new_password = self.cleaned_data.get('new_password')
-    password_confirmation = self.cleaned_data.get('password_confirmation')
-    if (new_password != password_confirmation):
-        self.add_error('password_confirmation', 'Confirmation does not match the password.')
+**Diff between Old and New Code**:
+--- 
 
++++ 
 
-Function/Class EXTERNAL::super:
-None
+@@ -9,7 +9,7 @@
 
-Function/Class forms::SignUpForm.save:
+ class SignUpForm(forms.ModelForm):
+     class Meta:
+         model = User
+-        fields = ['first_name', 'last_name', 'username', 'email', 'bio']
++        fields = ['first_name', 'last_name', 'username', 'email', 'bio', 'birthdate', 'phone']
+         widgets = {'bio': forms.Textarea()}
+ 
+     new_password = forms.CharField(
+@@ -51,5 +51,7 @@
 
+             email = self.cleaned_data.get('email'),
+             bio = self.cleaned_data.get('bio'),
+             password = self.cleaned_data.get('new_password'),
++            birthdate = self.cleaned_data.get('birthdate'),
++            phone = self.cleaned_data.get('phone'),
+         )
+         return user
 
-def save(self):
-    super().save(commit=False)
-    user = User.objects.create_user(self.cleaned_data.get('username'), first_name=self.cleaned_data.get('first_name'), last_name=self.cleaned_data.get('last_name'), email=self.cleaned_data.get('email'), bio=self.cleaned_data.get('bio'), password=self.cleaned_data.get('new_password'))
-    return user
+Please update the documentation accordingly, ensuring it accurately reflects the changes. Provide a comprehensive and clear description for any modified or new functions/classes.
 
-.
+**Updated Documentation**:

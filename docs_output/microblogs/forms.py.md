@@ -1,3 +1,5 @@
+Here is the updated documentation:
+
 # forms.py
 
 ## ClassDef LogInForm
@@ -29,36 +31,21 @@ The function of the class is to validate and save new user sign up information, 
 - `bio` (`str`): A bio or description about the user.
 - `new_password` (`str`): The new password entered by the user.
 - `password_confirmation` (`str`): The confirmation of the new password.
+- `birthdate` (`datetime.date`): The birthdate of the user.
+- `phone` (`str`): The phone number of the user.
 
 **Functions**:
 
-- **clean**():
+
+- **clean()**
     - Parameters: None
     - Returns: None
-    - Description: This method validates the form data. It checks if the newly created password matches the password confirmation.
-- **save**():
+    - Description: This method validates the form data. It checks if the newly created password matches the password confirmation, and also ensures that the birthdate is in a valid format.
+- **save()**
     - Parameters: None
-    - Returns: `user` (`User`): The saved user object.
-    - Description: This method saves the form data to a new user in the database.
+    - Returns: `User` object
+    - Description: This method creates a new user based on the form data and saves it to the database. It takes into account the additional fields introduced in the updated code.
 
-**Called_functions**:
+**Code Description**: This class defines a sign up form with additional fields for birthdate and phone number, which are used to create a new user and save it to the database.
 
-- `super().clean()`: Calls the parent class' clean method for general form validation.
-- `super().save(commit=False)`: Calls the parent class' save method without committing the changes to the database.
-- `User.objects.create_user()`: Creates and saves a new user in the database.
-
-**Code Description**: This class defines a sign up form that validates and saves user information. It includes password confirmation validation and ensures that the saved password matches the entered password.
-
-**Note**: The code enforces strong password policy by requiring uppercase letters, lowercase letters, and numbers. It also prevents incorrect password confirmation.
-
-**Input Example**: 
-
-```
-Input will be a dictionary-like object with attributes like 'first_name', 'last_name', 'username', 'email', 'bio', 'new_password', and 'password_confirmation'.
-```
-
-**Output Example**:
-
-```
-The output of the save method will be a user object containing all the saved information.
-```
+Note: The `clean()` method has been updated to validate the birthdate as well.
